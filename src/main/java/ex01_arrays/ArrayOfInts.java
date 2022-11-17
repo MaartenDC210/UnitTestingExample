@@ -1,6 +1,8 @@
 package ex01_arrays;
 
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
 
 public class ArrayOfInts {
     public int sumOfInts(int[] arrayOfInts) {
@@ -28,8 +30,37 @@ public class ArrayOfInts {
     }
 
     public int sumOfXLargest(int[] arrayOfInts, int x) {
-        return 0;
+        if (arrayOfInts == null) return 0;
+        int[] copy = Arrays.copyOf(arrayOfInts,arrayOfInts.length);
+        Arrays.sort(copy);
+        int from = x > copy.length ? 0 : copy.length - x;
+
+        int[] reverse = Arrays.copyOfRange(copy, from, copy.length);
+        System.out.println(from);
+        System.out.println(copy.length);
+        System.out.println(Arrays.toString(reverse));
+       return sumOfInts(reverse);
     }
+
+    public int countMostPopularNumber(int[] arrayOfInts){
+        if (arrayOfInts == null) return 0;
+        if (arrayOfInts.length == 0) return 0;
+        HashMap<Integer,Integer> map = new HashMap<>();
+        for (int i : arrayOfInts) {
+            if (map.containsKey(i))
+                map.put(i, map.get(i) + 1);
+            else
+                map.put(i,1);
+        }
+        Integer[] numbers;
+        numbers = map.values().toArray(new Integer[0]);
+        Arrays.sort(numbers);
+        return numbers[numbers.length-1];
+    }
+    public int[] findCommonElements(int[] array1, int[] array2 ){
+        return new int[]{};
+    }
+
 
     public static void main(String[] args) {
         ArrayOfInts ex1 = new ArrayOfInts();
