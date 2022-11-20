@@ -57,8 +57,36 @@ public class ArrayOfInts {
         Arrays.sort(numbers);
         return numbers[numbers.length-1];
     }
-    public int[] findCommonElements(int[] array1, int[] array2 ){
-        return new int[]{};
+    public Integer[] findCommonElements(int[] array1, int[] array2 ){
+        var commonElements = new HashMap<Integer, Integer>();
+        var index = 0;
+        if( array1 == null || array2 == null) return new Integer[]{};
+        for( int i : array1){
+            for (int j : array2) {
+                if(!commonElements.containsValue(j) && i == j)
+                    commonElements.put(index, j);
+            }
+            index++;
+        }
+
+        return commonElements.values().toArray(new Integer[0]);
+    }
+
+    public Integer[] findDuplicateValues(int[] array){
+        var NotDuplicateElements = new HashMap<Integer, Integer>();
+        var index = 0;
+        var duplicateElements = new HashMap<Integer, Integer>();
+        if( array == null) return new Integer[]{};
+        if( array.length == 0 ) return new Integer[]{};
+        for( int i : array) {
+            if (!NotDuplicateElements.containsValue(i))
+                NotDuplicateElements.put(index, i);
+            else
+                duplicateElements.put(index, i);
+
+            index++;
+        }
+        return duplicateElements.values().toArray(new Integer[0]);
     }
 
 
