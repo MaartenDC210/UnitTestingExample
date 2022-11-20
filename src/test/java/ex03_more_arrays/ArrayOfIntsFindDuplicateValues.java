@@ -9,25 +9,25 @@ public class ArrayOfIntsFindDuplicateValues {
     private final ArrayOfInts arrayOfInts = new ArrayOfInts();
     @Test
     void happyFlow(){
-        var result = arrayOfInts.findDuplicateValues(new int[]{1,2,2,3,4,5,6});
+        var result = arrayOfInts.findDuplicateValues(new Integer[]{1,2,2,3,4,5,6});
         assertArrayEquals(result, new Integer[]{2});
     }
 
     @Test
     void multipleDuplicateValues(){
-        var result = arrayOfInts.findDuplicateValues(new int[]{1,2,2,3,4,5,5,6});
+        var result = arrayOfInts.findDuplicateValues(new Integer[]{1,2,2,3,4,5,5,6});
         assertArrayEquals(result, new Integer[]{2,5});
     }
 
     @Test
     void noDuplicateValues(){
-        var result = arrayOfInts.findDuplicateValues(new int[]{1,2,3,4,5,6});
+        var result = arrayOfInts.findDuplicateValues(new Integer[]{1,2,3,4,5,6});
         assertArrayEquals(result, new Integer[]{});
     }
 
     @Test
     void emptyArray() {
-        var result = arrayOfInts.findDuplicateValues(new int[]{});
+        var result = arrayOfInts.findDuplicateValues(new Integer[]{});
         assertArrayEquals(new Integer[]{}, result );
     }
 

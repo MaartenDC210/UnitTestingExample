@@ -57,7 +57,7 @@ public class ArrayOfInts {
         Arrays.sort(numbers);
         return numbers[numbers.length-1];
     }
-    public Integer[] findCommonElements(int[] array1, int[] array2 ){
+    public Integer[] findCommonElements(Integer[] array1, Integer[] array2 ){
         var commonElements = new HashMap<Integer, Integer>();
         var index = 0;
         if( array1 == null || array2 == null) return new Integer[]{};
@@ -72,7 +72,7 @@ public class ArrayOfInts {
         return commonElements.values().toArray(new Integer[0]);
     }
 
-    public Integer[] findDuplicateValues(int[] array){
+    public Integer[] findDuplicateValues(Integer[] array){
         var NotDuplicateElements = new HashMap<Integer, Integer>();
         var index = 0;
         var duplicateElements = new HashMap<Integer, Integer>();
